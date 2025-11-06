@@ -250,8 +250,7 @@ app.post("/api/auth/login", async (req, res) => {
   }
 });
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`API server running on http://localhost:${PORT}`);
+  console.log(`🚀 API server running on port ${PORT}`);
 });
-/* eslint-env node */
