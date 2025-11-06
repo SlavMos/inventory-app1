@@ -8,6 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "start": "node server/index.js",
+    "prestart": "prisma generate && prisma db push",
     "server": "node server/index.js",
     "server:dev": "nodemon server/index.js",
     "studio": "prisma studio",
