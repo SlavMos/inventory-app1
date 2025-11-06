@@ -33,6 +33,20 @@ inventory-app/
 └── README.md
 
 ---
+# Inventory App
+
+**Live demo**
+- **Backend (API)**: https://inventory-app1-f3wl.onrender.com 
+- **Frontend (Web)**: https://inventory-app1.vercel.app/
+
+**Quick checks**
+- POST `/api/auth/register` → `https://inventory-app1-f3wl.onrender.com/api/auth/register`
+- POST `/api/auth/login`    → `https://inventory-app1-f3wl.onrender.com/api/auth/login`
+
+---
+
+## О приложении
+Краткое описание, как запускать локально, env, команды и т.д.
 
 ## ⚙️ Как запустить локально
 
