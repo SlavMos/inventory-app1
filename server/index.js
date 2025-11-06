@@ -4,6 +4,12 @@ import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
+// Ensure DATABASE_URL exists in dev to avoid silent Prisma failures
+/* eslint-disable no-undef */
+if (typeof process !== "undefined" && !process.env.DATABASE_URL) {
+  process.env.DATABASE_URL = "file:./server/prisma/dev.db";
+}
+
 const app = express();
 const prisma = new PrismaClient();
 
