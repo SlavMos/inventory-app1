@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Inventory {
+  id        Int      @id @default(autoincrement())
+  title     String
+  fields    Json?
+  items     Item[]
+  discussions Discussion[]
+  createdAt DateTime @default(now())
+}
+
+model Item {
+  id           Int      @id @default(autoincrement())
+  name         String
+  quantity     Int
+  price        Float
+  customId     String?
+  customFields Json?
+  inventoryId  Int
+  inventory    Inventory @relation(fields: [inventoryId], references: [id])
+  createdAt    DateTime  @default(now())
+}
+
+model Discussion {
+  id          Int        @id @default(autoincrement())
+  inventoryId Int
+  author      String
+  message     String
+  createdAt   DateTime   @default(now())
+
+  inventory   Inventory  @relation(fields: [inventoryId], references: [id])
+}
+
+model User {
+  id           Int      @id @default(autoincrement())
+  email        String   @unique
+  passwordHash String
+  role         String   @default("user")
+  createdAt    DateTime @default(now())
+}
